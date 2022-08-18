@@ -11,6 +11,15 @@ pub struct SendTweet<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(_ctx: Context<SendTweet>) -> Result<()> {
+pub fn handler(
+    ctx: Context<SendTweet>,
+    content: String,
+    topic: String
+) -> Result<()> {
+    let tweet: &mut Account<Tweet> = &mut ctx.accounts.tweet;
+    
+    // tweet.content = content;
+    // tweet.topic = topic;
+    // tweet.likes = 0;
     Ok(())
 }
